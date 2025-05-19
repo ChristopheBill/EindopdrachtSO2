@@ -1,6 +1,6 @@
 ﻿using WeerEventsApi.Steden;
 
-namespace WeerEventsApi.WeerStations
+namespace WeerEventsApi.WeerStations.SpecifiekeWeerstations
 {
     public class NeerslagWeerstation : AbstractWeerStation
     {

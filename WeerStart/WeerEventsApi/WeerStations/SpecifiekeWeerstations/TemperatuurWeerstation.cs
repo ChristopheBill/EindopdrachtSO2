@@ -1,7 +1,7 @@
 ﻿using System;
 using WeerEventsApi.Steden;
 
-namespace WeerEventsApi.WeerStations
+namespace WeerEventsApi.WeerStations.SpecifiekeWeerstations
 {
     public class TemperatuurWeerstation : AbstractWeerStation
     {
