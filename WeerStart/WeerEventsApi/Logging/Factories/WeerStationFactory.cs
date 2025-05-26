@@ -8,13 +8,12 @@ namespace WeerEventsApi.Logging.Factories
     public static class WeerStationFactory
     {
         private static readonly Random _random = new();
-
-        public static List<WeerStation> Maak12WillekeurigeWeerstations(List<Stad> steden)
+        public static List<AbstractWeerStation> Maak12WillekeurigeWeerstations(List<Stad> steden)
         {
             if (steden == null || steden.Count == 0)
                 throw new ArgumentException("De lijst met steden mag niet leeg zijn.", nameof(steden));
 
-            var weerstations = new List<WeerStation>();
+            var weerstations = new List<AbstractWeerStation>();
 
             for (int i = 0; i < 12; i++)
             {
@@ -25,7 +24,7 @@ namespace WeerEventsApi.Logging.Factories
             return weerstations;
         }
 
-        public static WeerStation MaakWillekeurigWeerstationVoorStad(Stad stad)
+        public static AbstractWeerStation MaakWillekeurigWeerstationVoorStad(Stad stad)
         {
             if (stad == null)
                 throw new ArgumentNullException(nameof(stad));
