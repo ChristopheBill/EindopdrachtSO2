@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <Folder Include="Facade\Models\" />
+      <Folder Include="WeerBerichten\Proxies\" />
     </ItemGroup>
 
 </Project>
