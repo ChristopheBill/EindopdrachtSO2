@@ -7,14 +7,14 @@ namespace WeerEventsApi.WeerStations.SpecifiekeWeerstations
         public LuchtdrukWeerstation(Stad locatie) : base(locatie) { }
         protected override Meting GenereerMeting()
         {
+            DateTime dateTime = DateTime.Now;
             double waarde = _random.NextDouble() * 50 + 950; // 950 hPa tot 1000 hPa
-            return new Meting
-            {
-                Moment = DateTime.Now,
-                Waarde = Math.Round(waarde, 1),
-                Eenheid = Eenheid.HectoPascal,
-                Locatie = Locatie
-            };
+            var meting = new Meting(dateTime,
+                Math.Round(waarde, 1),
+                Eenheid.HectoPascal,
+                Locatie
+            );
+            return meting;
         }
     }
     

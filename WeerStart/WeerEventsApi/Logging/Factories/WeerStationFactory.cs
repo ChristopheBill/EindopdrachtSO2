@@ -1,6 +1,7 @@
 ﻿using WeerEventsApi.Facade.Dto;
 using WeerEventsApi.Steden;
 using WeerEventsApi.WeerStations;
+using WeerEventsApi.WeerStations.SpecifiekeWeerstations;
 
 namespace WeerEventsApi.Logging.Factories
 {
@@ -8,12 +9,12 @@ namespace WeerEventsApi.Logging.Factories
     {
         private static readonly Random _random = new();
 
-        public static List<WeerStationDto> Maak12WillekeurigeWeerstations(List<Stad> steden)
+        public static List<WeerStation> Maak12WillekeurigeWeerstations(List<Stad> steden)
         {
             if (steden == null || steden.Count == 0)
                 throw new ArgumentException("De lijst met steden mag niet leeg zijn.", nameof(steden));
 
-            var weerstations = new List<WeerStationDto>();
+            var weerstations = new List<WeerStation>();
 
             for (int i = 0; i < 12; i++)
             {
@@ -24,7 +25,7 @@ namespace WeerEventsApi.Logging.Factories
             return weerstations;
         }
 
-        public static WeerStationDto MaakWillekeurigWeerstationVoorStad(Stad stad)
+        public static WeerStation MaakWillekeurigWeerstationVoorStad(Stad stad)
         {
             if (stad == null)
                 throw new ArgumentNullException(nameof(stad));

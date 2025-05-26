@@ -5,7 +5,7 @@ namespace WeerEventsApi.WeerStations
 {
     public abstract class AbstractWeerStation
     {
-        private List<Meting> _metingen;
+        private List<Meting> _metingen = new();
         protected readonly Random _random = new();
 
         public Stad Locatie { get; }
@@ -13,6 +13,10 @@ namespace WeerEventsApi.WeerStations
         protected AbstractWeerStation(Stad locatie)
         {
             Locatie = locatie;
+        }
+        protected void MetingToevoegen(Meting meting)
+        {
+            _metingen.Add(meting);
         }
     }
 }

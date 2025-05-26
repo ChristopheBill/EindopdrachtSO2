@@ -3,7 +3,7 @@ using WeerEventsApi.WeerStations;
 
 namespace WeerEventsApi.Facade.Dto;
 
-public class WeerStationDto
+public class WeerStation
 {
     private List<Meting> _metingen;
     protected readonly Random _random = new();

@@ -6,7 +6,7 @@ public interface IDomeinController
 {
     IEnumerable<StadDto> GeefSteden();
     
-    IEnumerable<WeerStationDto> GeefWeerstations();
+    IEnumerable<WeerStation> GeefWeerstations();
 
     IEnumerable<MetingDto> GeefMetingen();
     

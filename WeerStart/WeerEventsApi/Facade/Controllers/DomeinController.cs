@@ -22,7 +22,7 @@ public class DomeinController : IDomeinController
         });
     }
 
-    public IEnumerable<WeerStationDto> GeefWeerstations()
+    public IEnumerable<WeerStation> GeefWeerstations()
     {
         //TODO
         throw new NotImplementedException();
