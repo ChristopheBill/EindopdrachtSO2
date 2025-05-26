@@ -8,13 +8,12 @@ namespace WeerEventsApi.WeerStations.SpecifiekeWeerstations
         protected override Meting GenereerMeting()
         {
             double waarde = _random.NextDouble() * 20; // 0 tot 20 mm/h
-            return new Meting
-            {
-                Moment = DateTime.Now,
-                Waarde = Math.Round(waarde, 1),
-                Eenheid = Eenheid.MillimeterPerVierkanteMeterPerUur,
-                Locatie = Locatie
-            };
+            var meting = new Meting(DateTime.Now,
+                Math.Round(waarde, 1),
+                Eenheid.MillimeterPerVierkanteMeterPerUur,
+                Locatie
+            );
+            return meting;
         }
     }
     
