@@ -3,6 +3,7 @@ using WeerEventsApi.Logging;
 using WeerEventsApi.Logging.Factories;
 using WeerEventsApi.Steden.Managers;
 using WeerEventsApi.Steden.Repositories;
+using WeerEventsApi.WeerBerichten.Managers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddSingleton<IMetingLogger>(MetingLoggerFactory.Create(true,tru
 builder.Services.AddSingleton<IStadRepository, StadRepository>();
 builder.Services.AddSingleton<IStadManager, StadManager>();
 builder.Services.AddSingleton<IDomeinController, DomeinController>();
+builder.Services.AddSingleton<IWeerbericht, WeerBericht>();
 
 var app = builder.Build();
 
