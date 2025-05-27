@@ -12,6 +12,8 @@ namespace WeerEventsApi.WeerStations.Managers
             _metingLogger = metingLogger ?? throw new ArgumentNullException(nameof(metingLogger), "De meting logger mag niet null zijn.");
             _weerStations = new List<AbstractWeerStation>();
         }
+
+
         //public WeerStationManager(List<AbstractWeerStation> weerStations)
         //{
         //    _weerStations = weerStations ?? throw new ArgumentNullException(nameof(weerStations), "De lijst met weerstations mag niet null zijn.");
