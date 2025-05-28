@@ -7,6 +7,15 @@ public static class MetingLoggerFactory
         //TODO Alle combinaties moeten mogelijk zijn (false,false | true,false | false,true | true,true)
         IMetingLogger metingLogger = new MetingLogger();
 
+        if (decorateWithJson)
+        {
+            metingLogger = new JsonMetingLogger(metingLogger);
+        }
+        if (decorateWithXml)
+        {
+            metingLogger = new XmlMetingLogger(metingLogger);
+        }
+
         return metingLogger;
     }
 }
