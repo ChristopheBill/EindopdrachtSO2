@@ -2,16 +2,16 @@
 
 namespace WeerEventsApi.Logging
 {
-    public class JsonMetingLogger : IMetingLogger
+    public class XmlMetingLogger : IMetingLogger
     {
-        private IMetingLogger _metingLogger;
+        private readonly IMetingLogger _metingLogger;
 
-        public JsonMetingLogger(IMetingLogger metingLogger)
+        public XmlMetingLogger(IMetingLogger metingLogger)
         {
             _metingLogger = metingLogger ?? throw new ArgumentNullException(nameof(metingLogger), "De meting logger mag niet null zijn.");
         }
 
-        public void Log (string message)
+        public void Log(string message)
         {
             if (string.IsNullOrWhiteSpace(message))
             {
@@ -27,10 +27,15 @@ namespace WeerEventsApi.Logging
             {
                 throw new ArgumentNullException(nameof(meting), "De meting mag niet null zijn.");
             }
-            // Serialize the meting object to JSON
-            string jsonMeting = System.Text.Json.JsonSerializer.Serialize(meting);
-            // Log the JSON string using the IMetingLogger
-            _metingLogger.Log(jsonMeting);
+            // Serialize the meting object to XML
+            var xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(Meting));
+            using (var stringWriter = new System.IO.StringWriter())
+            {
+                xmlSerializer.Serialize(stringWriter, meting);
+                string xmlMeting = stringWriter.ToString();
+                // Log the XML string using the IMetingLogger
+                _metingLogger.Log(xmlMeting);
+            }
         }
     }
 }
