@@ -1,6 +1,6 @@
 ﻿using WeerEventsApi.WeerStations;
 
-namespace WeerEventsApi.Logging
+namespace WeerEventsApi.Logging.Decorators
 {
     public class JsonMetingLogger : IMetingLogger
     {

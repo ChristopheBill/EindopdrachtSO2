@@ -1,4 +1,5 @@
 ﻿using WeerEventsApi.Logging;
+using WeerEventsApi.Logging.Decorators;
 
 namespace WeerEventsApi.WeerStations.Managers
 {

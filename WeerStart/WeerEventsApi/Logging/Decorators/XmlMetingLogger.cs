@@ -1,6 +1,6 @@
 ﻿using WeerEventsApi.WeerStations;
 
-namespace WeerEventsApi.Logging
+namespace WeerEventsApi.Logging.Decorators
 {
     public class XmlMetingLogger : IMetingLogger
     {
@@ -29,7 +29,7 @@ namespace WeerEventsApi.Logging
             }
             // Serialize the meting object to XML
             var xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(Meting));
-            using (var stringWriter = new System.IO.StringWriter())
+            using (var stringWriter = new StringWriter())
             {
                 xmlSerializer.Serialize(stringWriter, meting);
                 string xmlMeting = stringWriter.ToString();

@@ -1,3 +1,4 @@
+using WeerEventsApi.Logging.Decorators;
 namespace WeerEventsApi.Logging.Factories;
 
 public static class MetingLoggerFactory
