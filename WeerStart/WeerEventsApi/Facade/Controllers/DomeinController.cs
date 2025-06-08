@@ -50,7 +50,7 @@ public class DomeinController : IDomeinController
     public void DoeMetingen()
     {
         //TODO
-        throw new NotImplementedException();
+        _weerstationManager.DoeMetingen();
     }
 
     public WeerBerichtDto GeefWeerbericht()

@@ -58,6 +58,13 @@ namespace WeerEventsApi.WeerStations.Managers
             }
             return metingen;
         }
+        public void DoeMetingen()
+        {
+            foreach (var station in _weerStations)
+            {
+                var meting = station.GenereerMeting();
+            }
+        }
 
         public void SetupRandomWeerstations(IEnumerable<Stad> steden, int aantalWeerstations)
         {
@@ -78,13 +85,6 @@ namespace WeerEventsApi.WeerStations.Managers
             }
         }
 
-        public void DoeMetingen()
-        {
-            foreach (var station in _weerStations)
-            {
-                var meting = station.GenereerMeting();
-            }
-        }
 
         //public WeerStationManager(List<AbstractWeerStation> weerStations)
         //{

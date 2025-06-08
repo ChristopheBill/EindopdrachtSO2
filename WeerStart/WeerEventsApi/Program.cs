@@ -27,7 +27,13 @@ app.MapGet("/weerstations", (IDomeinController dc) => dc.GeefWeerstations());
 
 app.MapGet("/metingen", (IDomeinController dc) => dc.GeefMetingen());
 
-app.MapGet("/GeefWeerbericht", (IDomeinController dc) => dc.GeefWeerbericht());
+app.MapGet("/weerbericht", (IDomeinController dc) => dc.GeefWeerbericht());
+
+app.MapPost("/doemeting", (IDomeinController dc) => 
+{
+    dc.DoeMetingen();
+    return Results.Ok("Metingen zijn uitgevoerd.");
+});
 
 
 //TODO api aanvullen
