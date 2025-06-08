@@ -19,5 +19,11 @@ namespace WeerEventsApi.WeerStations
             _metingen.Add(meting);
         }
         public event Action<Meting>? MetingGegenereerd;
+
+        protected void OnMetingGegenereerd(Meting meting)
+        {
+            MetingGegenereerd?.Invoke(meting);
+            MetingToevoegen(meting);
+        }
     }
 }

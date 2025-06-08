@@ -29,7 +29,7 @@ app.MapGet("/metingen", (IDomeinController dc) => dc.GeefMetingen());
 
 app.MapGet("/weerbericht", (IDomeinController dc) => dc.GeefWeerbericht());
 
-app.MapPost("/doemeting", (IDomeinController dc) => 
+app.MapPost("/commands/metingen", (IDomeinController dc) => 
 {
     dc.DoeMetingen();
     return Results.Ok("Metingen zijn uitgevoerd.");

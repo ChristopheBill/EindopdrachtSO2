@@ -1,5 +1,6 @@
 using WeerEventsApi.Facade.Dto;
 using WeerEventsApi.Steden.Managers;
+using WeerEventsApi.Weerberichten.Managers;
 using WeerEventsApi.WeerStations.Managers;
 
 namespace WeerEventsApi.Facade.Controllers;
@@ -8,11 +9,13 @@ public class DomeinController : IDomeinController
 {
     private readonly IStadManager _stadManager;
     private readonly WeerStationManager _weerstationManager;
+    private readonly IWeerbericht _weerbericht;
 
-    public DomeinController(IStadManager stadManager, WeerStationManager weerStationManager)
+    public DomeinController(IStadManager stadManager, WeerStationManager weerStationManager, IWeerbericht weerbericht)
     {
         _stadManager = stadManager;
         _weerstationManager = weerStationManager;
+        _weerbericht = weerbericht;
     }
 
     public IEnumerable<StadDto> GeefSteden()
@@ -56,6 +59,7 @@ public class DomeinController : IDomeinController
     public WeerBerichtDto GeefWeerbericht()
     {
         //TODO
-        throw new NotImplementedException();
+        var bericht = _weerstationManager.GeefMetingen();
+        return _weerbericht.GenereerWeerBericht(bericht);
     }
 }

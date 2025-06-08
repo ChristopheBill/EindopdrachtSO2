@@ -1,7 +1,7 @@
 ﻿using WeerEventsApi.Logging;
 using WeerEventsApi.Logging.Decorators;
-using WeerEventsApi.Logging.Factories;
 using WeerEventsApi.Steden;
+using WeerEventsApi.WeerStations.Factories;
 
 namespace WeerEventsApi.WeerStations.Managers
 {
@@ -62,7 +62,7 @@ namespace WeerEventsApi.WeerStations.Managers
         {
             foreach (var station in _weerStations)
             {
-                var meting = station.GenereerMeting();
+                station.GenereerMeting();
             }
         }
 
@@ -84,22 +84,5 @@ namespace WeerEventsApi.WeerStations.Managers
                 VoegWeerstationToe(weerStation);
             }
         }
-
-
-        //public WeerStationManager(List<AbstractWeerStation> weerStations)
-        //{
-        //    _weerStations = weerStations ?? throw new ArgumentNullException(nameof(weerStations), "De lijst met weerstations mag niet null zijn.");
-        //}
-        //public IEnumerable<AbstractWeerStation> GeefWeerstations()
-        //{
-        //    return _weerStations;
-        //}
-        //public void DoeMetingen()
-        //{
-        //    foreach (var station in _weerStations)
-        //    {
-        //        station.DoeMeting();
-        //    }
-        //}
     }
 }

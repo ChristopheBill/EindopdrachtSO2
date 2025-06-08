@@ -23,4 +23,9 @@ GET http://localhost:5008/weerbericht
 
 ###
 
+### Laat alle stations een meting genereren
+POST http://localhost:5008/commands/metingen
+
+###
+
 //TODO api tests aanvullen

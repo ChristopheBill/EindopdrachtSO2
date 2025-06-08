@@ -3,7 +3,7 @@ using WeerEventsApi.Steden;
 using WeerEventsApi.WeerStations;
 using WeerEventsApi.WeerStations.SpecifiekeWeerstations;
 
-namespace WeerEventsApi.Logging.Factories
+namespace WeerEventsApi.WeerStations.Factories
 {
     public static class WeerStationFactory
     {
