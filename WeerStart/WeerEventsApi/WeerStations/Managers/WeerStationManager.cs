@@ -1,5 +1,7 @@
 ﻿using WeerEventsApi.Logging;
 using WeerEventsApi.Logging.Decorators;
+using WeerEventsApi.Logging.Factories;
+using WeerEventsApi.Steden;
 
 namespace WeerEventsApi.WeerStations.Managers
 {
@@ -43,9 +45,23 @@ namespace WeerEventsApi.WeerStations.Managers
             return _weerStations.AsReadOnly();
         }
 
-        private void meting(Meting obj)
+        public void SetupRandomWeerstations(IEnumerable<Stad> steden, int aantalWeerstations)
         {
-            throw new NotImplementedException();
+            if (steden == null || !steden.Any())
+            {
+                throw new ArgumentException("De lijst met steden mag niet null of leeg zijn.", nameof(steden));
+            }
+            if (aantalWeerstations <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(aantalWeerstations), "Het aantal weerstations moet groter dan 0 zijn.");
+            }
+            var random = new Random();
+            for (int i = 0; i < aantalWeerstations; i++)
+            {
+                var stad = steden.ElementAt(random.Next(steden.Count()));
+                var weerStation = WeerStationFactory.MaakWillekeurigWeerstationVoorStad(stad); // Aangenomen dat RandomWeerStation een implementatie is van AbstractWeerStation
+                VoegWeerstationToe(weerStation);
+            }
         }
 
         //public WeerStationManager(List<AbstractWeerStation> weerStations)

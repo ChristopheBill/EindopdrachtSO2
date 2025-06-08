@@ -32,4 +32,11 @@ app.MapGet("/GeefWeerbericht", (IDomeinController dc) => dc.GeefWeerbericht());
 
 //TODO api aanvullen
 
+IServiceProvider serviceProvider = app.Services;
+IStadManager stadManager = serviceProvider.GetRequiredService<IStadManager>();
+WeerStationManager weerStationManager = serviceProvider.GetRequiredService<WeerStationManager>();
+IEnumerable<WeerEventsApi.Steden.Stad> steden = stadManager.GeefSteden();
+weerStationManager.SetupRandomWeerstations(steden, 12);
+
+
 app.Run();
