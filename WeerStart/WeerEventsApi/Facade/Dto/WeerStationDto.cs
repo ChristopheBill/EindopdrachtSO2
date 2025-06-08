@@ -5,8 +5,6 @@ namespace WeerEventsApi.Facade.Dto;
 
 public class WeerStationDto
 {
-    private List<Meting> _metingen;
-    protected readonly Random _random = new();
-    public Stad Locatie { get; }
-    //protected Meting GenereerMeting();
+    public string Soort { get; set; }
+    public string Stad { get; set; }
 }

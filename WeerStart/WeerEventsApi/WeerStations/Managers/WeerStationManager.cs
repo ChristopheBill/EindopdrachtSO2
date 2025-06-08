@@ -38,6 +38,11 @@ namespace WeerEventsApi.WeerStations.Managers
             _weerStations.Add(weerStation);
         }
 
+        public IEnumerable<AbstractWeerStation> GeefWeerstations()
+        {
+            return _weerStations.AsReadOnly();
+        }
+
         private void meting(Meting obj)
         {
             throw new NotImplementedException();
