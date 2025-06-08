@@ -38,7 +38,13 @@ public class DomeinController : IDomeinController
     public IEnumerable<MetingDto> GeefMetingen()
     {
         //TODO
-        throw new NotImplementedException();
+        return _weerstationManager.GeefMetingen().Select(m => new MetingDto
+        {
+            Locatie = m.Locatie.Naam,
+            Waarde = m.Waarde,
+            Eenheid = m.Eenheid,
+            Moment = m.Moment
+        });
     }
 
     public void DoeMetingen()

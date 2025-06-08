@@ -45,6 +45,20 @@ namespace WeerEventsApi.WeerStations.Managers
             return _weerStations.AsReadOnly();
         }
 
+        public List<Meting> GeefMetingen()
+        {
+            var metingen = new List<Meting>();
+            foreach (var station in _weerStations)
+            {
+                var meting = station.GenereerMeting();
+                if (meting != null)
+                {
+                    metingen.Add(meting);
+                }
+            }
+            return metingen;
+        }
+
         public void SetupRandomWeerstations(IEnumerable<Stad> steden, int aantalWeerstations)
         {
             if (steden == null || !steden.Any())
@@ -61,6 +75,14 @@ namespace WeerEventsApi.WeerStations.Managers
                 var stad = steden.ElementAt(random.Next(steden.Count()));
                 var weerStation = WeerStationFactory.MaakWillekeurigWeerstationVoorStad(stad); // Aangenomen dat RandomWeerStation een implementatie is van AbstractWeerStation
                 VoegWeerstationToe(weerStation);
+            }
+        }
+
+        public void DoeMetingen()
+        {
+            foreach (var station in _weerStations)
+            {
+                var meting = station.GenereerMeting();
             }
         }
 
