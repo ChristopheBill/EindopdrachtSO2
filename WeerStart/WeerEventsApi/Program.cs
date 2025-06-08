@@ -5,6 +5,7 @@ using WeerEventsApi.Steden.Managers;
 using WeerEventsApi.Steden.Repositories;
 using WeerEventsApi.Weerberichten.Managers;
 using WeerEventsApi.WeerBerichten.Managers;
+using WeerEventsApi.WeerStations.Managers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddSingleton<IStadRepository, StadRepository>();
 builder.Services.AddSingleton<IStadManager, StadManager>();
 builder.Services.AddSingleton<IDomeinController, DomeinController>();
 builder.Services.AddSingleton<IWeerbericht, WeerBericht>();
+builder.Services.AddSingleton<WeerStationManager>();
 
 var app = builder.Build();
 
