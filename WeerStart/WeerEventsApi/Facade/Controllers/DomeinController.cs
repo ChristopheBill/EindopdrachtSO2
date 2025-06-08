@@ -42,7 +42,7 @@ public class DomeinController : IDomeinController
         {
             Locatie = m.Locatie.Naam,
             Waarde = m.Waarde,
-            Eenheid = m.Eenheid,
+            Eenheid = m.Eenheid.ToString(),
             Moment = m.Moment
         });
     }
