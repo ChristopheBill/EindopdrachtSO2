@@ -9,9 +9,10 @@ public class DomeinController : IDomeinController
     private readonly IStadManager _stadManager;
     private readonly WeerStationManager _weerstationManager;
 
-    public DomeinController(IStadManager stadManager)
+    public DomeinController(IStadManager stadManager, WeerStationManager weerStationManager)
     {
         _stadManager = stadManager;
+        _weerstationManager = weerStationManager;
     }
 
     public IEnumerable<StadDto> GeefSteden()
