@@ -3,6 +3,7 @@ using WeerEventsApi.Logging;
 using WeerEventsApi.Logging.Factories;
 using WeerEventsApi.Steden.Managers;
 using WeerEventsApi.Steden.Repositories;
+using WeerEventsApi.Weerberichten.Managers;
 using WeerEventsApi.WeerBerichten.Managers;
 
 var builder = WebApplication.CreateBuilder(args);

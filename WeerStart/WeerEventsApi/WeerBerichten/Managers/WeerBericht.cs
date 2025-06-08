@@ -1,9 +1,10 @@
 ﻿using WeerEventsApi.Facade.Dto;
+using WeerEventsApi.Weerberichten.Managers;
 using WeerEventsApi.WeerStations;
 
 namespace WeerEventsApi.WeerBerichten.Managers
 {
-    public class WeerBericht
+    public class WeerBericht : IWeerbericht
     {
         public WeerBerichtDto GenereerWeerBericht(IEnumerable<Meting> metingen)
         {

@@ -8,7 +8,7 @@ namespace WeerEventsApi.WeerStations.SpecifiekeWeerstations
     {
         public TemperatuurWeerstation(Stad locatie) : base(locatie) { }
 
-        protected override Meting GenereerMeting()
+        public override Meting GenereerMeting()
         {
             double waarde = _random.NextDouble() * 45 - 10; // -10°C tot 35°C
             var meting = new Meting (DateTime.Now,
